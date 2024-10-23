@@ -4,6 +4,370 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .content-auto {
+          content-visibility: auto;
+        }
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <div class="w-full max-w-[1180px] px-2 mx-auto text-center">
+      <div class="text-center mt-8 mb-4">
+        <h1
+          class="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight text-black"
+        >
+          View our Featured Speakers for the Event
+        </h1>
+        <p class="text-base sm:text-lg md:text-xl text-gray-600 mt-2">
+          Speakers are core contributors and industry thought leaders working at
+          <a href="#" class="text-blue-600 underline"> companies </a> that push
+          for innovation.
+        </p>
+      </div>
+      <!-- speaker details -->
+      <div
+        class="flex items-center border rounded-md shadow-lg p-6 mt-10 relative hidden"
+        id="speaker-detail"
+      >
+        <!-- Left Section (Profile Image & Details) -->
+        <button
+          class="absolute top-0 right-0 pr-3 mt-2"
+          onclick="hideDetails()"
+        >
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 18 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M13.5 4.5L4.5 13.5M4.5 4.5L13.5 13.5"
+              stroke="#323232"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+        <div class="flex items-center w-[30%] space-x-4" id="speaker-profile">
+          <!-- Profile Image -->
+          <img
+            src="https://tse1.mm.bing.net/th?id=OIP.mEma0ZcipymPAHIYoIuFiAHaJa&pid=Api&P=0&h=180"
+            alt="Speaker"
+            class="w-24 h-24 rounded-full mx-auto object-cover"
+          />
+          <!-- Details -->
+          <div class="text-left whitespace-nowrap">
+            <h2 class="font-bold text-lg">John Doe</h2>
+            <p class="text-sm-700">Chief Marketing Office</p>
+            <p class="text-gray-500">Specbee</p>
+            <!-- Social Icons -->
+            <div class="flex space-x-2 mt-2">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15.7814 5.113C14.0914 3.425 12.4814 1.815 11.9994 0C11.5194 1.815 9.90941 3.425 8.22141 5.113C5.68741 7.643 2.81641 10.513 2.81641 14.815C2.81641 17.251 3.784 19.5873 5.50634 21.3098C7.22867 23.0323 9.56466 24 12.0004 24C14.4362 24 16.7721 23.0323 18.4945 21.3098C20.2168 19.5873 21.1844 17.251 21.1844 14.815C21.1844 10.512 18.3134 7.644 15.7794 5.113M6.72141 16.954C6.15841 16.935 4.08141 13.354 7.93641 9.538L10.4864 12.326C10.508 12.3477 10.5249 12.3737 10.5358 12.4023C10.5468 12.4309 10.5517 12.4614 10.5502 12.492C10.5487 12.5226 10.5408 12.5526 10.5271 12.5799C10.5134 12.6073 10.494 12.6315 10.4704 12.651C9.86041 13.276 7.26641 15.878 6.94341 16.777C6.87741 16.963 6.77941 16.957 6.72141 16.954ZM12.0014 21.677C11.1638 21.6765 10.3607 21.3434 9.7686 20.7511C9.17644 20.1588 8.84367 19.3556 8.84341 18.518C8.85556 17.7521 9.1338 17.0142 9.63041 16.431C10.2004 15.735 12.0004 13.776 12.0004 13.776C12.0004 13.776 13.7744 15.764 14.3674 16.425C14.8828 16.9997 15.1652 17.7461 15.1594 18.518C15.1591 19.3556 14.8264 20.1588 14.2342 20.7511C13.6421 21.3434 12.839 21.6765 12.0014 21.677ZM18.0474 16.554C17.9794 16.704 17.8244 16.952 17.6164 16.959C17.2454 16.973 17.2054 16.782 16.9304 16.376C16.3264 15.484 11.0664 9.986 10.0824 8.921C9.21641 7.986 9.96041 7.326 10.3054 6.981C10.7374 6.547 12.0014 5.285 12.0014 5.285C12.0014 5.285 15.7674 8.859 17.3374 11.301C18.9074 13.743 18.3664 15.857 18.0474 16.554Z"
+                  fill="black"
+                />
+              </svg>
+
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 22 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M17.2051 0.25H20.5131L13.2861 8.51L21.7881 19.75H15.1301L9.91609 12.933L3.95009 19.75H0.640088L8.37009 10.915L0.215088 0.25H7.04009L11.7531 6.481L17.2051 0.25ZM16.0441 17.77H17.8771L6.04509 2.126H4.07809L16.0441 17.77Z"
+                  fill="black"
+                />
+              </svg>
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 22 22"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18.3333 0C19.3058 0 20.2384 0.386309 20.9261 1.07394C21.6137 1.76158 22 2.69421 22 3.66667V18.3333C22 19.3058 21.6137 20.2384 20.9261 20.9261C20.2384 21.6137 19.3058 22 18.3333 22H3.66667C2.69421 22 1.76158 21.6137 1.07394 20.9261C0.386309 20.2384 0 19.3058 0 18.3333V3.66667C0 2.69421 0.386309 1.76158 1.07394 1.07394C1.76158 0.386309 2.69421 0 3.66667 0H18.3333ZM18.3333 2.44444H3.66667C3.34251 2.44444 3.03164 2.57321 2.80243 2.80243C2.57321 3.03164 2.44444 3.34251 2.44444 3.66667V18.3333C2.44444 18.6575 2.57321 18.9684 2.80243 19.1976C3.03164 19.4268 3.34251 19.5556 3.66667 19.5556H18.3333C18.6575 19.5556 18.9684 19.4268 19.1976 19.1976C19.4268 18.9684 19.5556 18.6575 19.5556 18.3333V3.66667C19.5556 3.34251 19.4268 3.03164 19.1976 2.80243C18.9684 2.57321 18.6575 2.44444 18.3333 2.44444ZM6.11111 8.55556C6.41047 8.5556 6.69941 8.6655 6.92312 8.86443C7.14683 9.06336 7.28975 9.33747 7.32478 9.63478L7.33333 9.77778V15.8889C7.33299 16.2004 7.2137 16.5 6.99985 16.7266C6.786 16.9531 6.49372 17.0894 6.18274 17.1077C5.87176 17.1259 5.56554 17.0247 5.32665 16.8248C5.08776 16.6248 4.93424 16.3412 4.89744 16.0319L4.88889 15.8889V9.77778C4.88889 9.45362 5.01766 9.14275 5.24687 8.91354C5.47608 8.68433 5.78696 8.55556 6.11111 8.55556ZM9.77778 7.33333C10.064 7.33329 10.3412 7.43371 10.561 7.61709C10.7808 7.80046 10.9292 8.05516 10.9804 8.33678C11.2266 8.19461 11.4809 8.06687 11.7419 7.95422C12.5571 7.60589 13.7781 7.414 14.8806 7.75989C15.4587 7.94322 16.0392 8.28544 16.4694 8.86844C16.8544 9.38789 17.0622 10.0198 17.1038 10.7299L17.1111 11V15.8889C17.1108 16.2004 16.9915 16.5 16.7776 16.7266C16.5638 16.9531 16.2715 17.0894 15.9605 17.1077C15.6495 17.1259 15.3433 17.0247 15.1044 16.8248C14.8655 16.6248 14.712 16.3412 14.6752 16.0319L14.6667 15.8889V11C14.6667 10.5967 14.5689 10.4084 14.5053 10.3217C14.414 10.2083 14.2883 10.1277 14.1472 10.0919C13.7219 9.95744 13.1096 10.0283 12.7026 10.2019C12.0914 10.4634 11.5317 10.8741 11.1503 11.2542L11 11.4156V15.8889C10.9997 16.2004 10.8804 16.5 10.6665 16.7266C10.4527 16.9531 10.1604 17.0894 9.84941 17.1077C9.53842 17.1259 9.2322 17.0247 8.99332 16.8248C8.75443 16.6248 8.6009 16.3412 8.56411 16.0319L8.55556 15.8889V8.55556C8.55556 8.2314 8.68433 7.92053 8.91354 7.69131C9.14275 7.4621 9.45362 7.33333 9.77778 7.33333ZM6.11111 4.88889C6.43526 4.88889 6.74614 5.01766 6.97535 5.24687C7.20456 5.47608 7.33333 5.78696 7.33333 6.11111C7.33333 6.43526 7.20456 6.74614 6.97535 6.97535C6.74614 7.20456 6.43526 7.33333 6.11111 7.33333C5.78696 7.33333 5.47608 7.20456 5.24687 6.97535C5.01766 6.74614 4.88889 6.43526 4.88889 6.11111C4.88889 5.78696 5.01766 5.47608 5.24687 5.24687C5.47608 5.01766 5.78696 4.88889 6.11111 4.88889Z"
+                  fill="black"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Section (Text Description) - 75% width -->
+        <div
+          class="w-[70%] ml-6 border-l-2 pl-6 text-gray-700 text-sm text-start"
+          id="speaker-description"
+        >
+          Monotectally synergize business communities rather than client-centric
+          convergence. Assertively unleash cross-platform best practices rather
+          than pandemic total linkage. Synergistically monetize parallel
+          infomediaries whereas 2.0 mindshare. Dramatically pursue real-time
+          markets through e-business strategic theme areas.
+        </div>
+      </div>
+
+      <!-- Slider Section -->
+      <div class="container mx-auto px-4 py-8 relative">
+        <!-- left arrow -->
+        <button
+          class="absolute left-[-40px] top-1/2 transform -translate-y-1/2 p-2 bg-white shadow-lg rounded-full z-10 mr-6 border-solid border-gray-400"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 text-gray-500"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            id="left-arrow"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+        </button>
+        <!-- Slider Container with Scroll Snap -->
+        <div
+          class="overflow-x-auto speakers-slider scroll-snap-x flex space-x-6 snap-mandatory snap-x py-4 overflow-x-hidden"
+        >
+          <!-- Speaker Card 1 -->
+          <div
+            class="speaker-card flex-shrink-0 snap-center bg-white rounded-lg shadow-lg p-6 w-64"
+            id="card"
+            data-name="John Doe"
+            data-role="Chief Marketing Officer"
+            data-company="Acme Corp"
+            data-image="./asset/image/speaker1.jpeg"
+          >
+            <img
+              src="./asset/image/speaker1.jpeg"
+              alt="Speaker"
+              class="w-24 h-24 rounded-full mx-auto object-cover"
+            />
+            <div class="text-center mt-4">
+              <h3 class="text-xl font-semibold">John Doe</h3>
+              <p class="text-gray-500">Chief Marketing Officer</p>
+              <p class="text-gray-400 text-sm">Acme Corp</p>
+            </div>
+          </div>
+
+          <!-- Speaker Card 2 -->
+          <div
+            class="speaker-card flex-shrink-0 snap-center bg-white rounded-lg shadow-lg p-6 w-64"
+            id="card"
+            data-name="John Doe"
+            data-role="Chief Engagement Officer"
+            data-company="Acquia"
+            data-image="./asset/image/speaker2.jpeg"
+          >
+            <img
+              src="./asset/image/speaker2.jpeg"
+              alt="Speaker"
+              class="w-24 h-24 rounded-full mx-auto object-cover"
+            />
+            <div class="text-center mt-4">
+              <h3 class="text-xl font-semibold">John Doe</h3>
+              <p class="text-gray-500">Chief Engagement Developer</p>
+              <p class="text-gray-400 text-sm">Acquia</p>
+            </div>
+          </div>
+
+          <!-- Speaker Card 3 -->
+          <div
+            class="speaker-card flex-shrink-0 snap-center bg-white rounded-lg shadow-lg p-6 w-64"
+            id="card"
+            data-name="John Doe"
+            data-role="Chief Technical Officer"
+            data-company="Pantheon"
+            data-image="./asset/image/speaker3.jpeg"
+          >
+            <img
+              src="./asset/image/speaker3.jpeg"
+              alt="Speaker"
+              class="w-24 h-24 rounded-full mx-auto object-cover"
+            />
+            <div class="text-center mt-4">
+              <h3 class="text-xl font-semibold">John Doe</h3>
+              <p class="text-gray-500">Chief Technical Developer</p>
+              <p class="text-gray-400 text-sm">Pantheon</p>
+            </div>
+          </div>
+
+          <!-- Speaker Card 4 -->
+          <div
+            class="speaker-card flex-shrink-0 snap-center bg-white rounded-lg shadow-lg p-6 w-64"
+            id="card"
+            data-name="John Doe"
+            data-role="Chief Marketing Officer"
+            data-company="Specbee"
+            data-image="./asset/image/speaker4.jpeg"
+          >
+            <img
+              src="./asset/image/speaker4.jpeg"
+              alt="Speaker"
+              class="w-24 h-24 rounded-full mx-auto object-cover"
+            />
+            <div class="text-center mt-4">
+              <h3 class="text-xl font-semibold">John Doe</h3>
+              <p class="text-gray-500">Chief Marketing Officer</p>
+              <p class="text-gray-400 text-sm">Specbee</p>
+            </div>
+          </div>
+          <!-- Speaker Card 5  -->
+          <div
+            class="speaker-card flex-shrink-0 snap-center bg-white rounded-lg shadow-lg p-6 w-64"
+            id="card"
+            data-name="John Doe"
+            data-role="Chief Marketing Officer"
+            data-company="Acme Corp"
+            data-image="./asset/image/speaker1.jpeg"
+          >
+            <img
+              src="./asset/image/speaker1.jpeg"
+              alt="Speaker"
+              class="w-24 h-24 rounded-full mx-auto object-cover"
+            />
+            <div class="text-center mt-4">
+              <h3 class="text-xl font-semibold">John Doe</h3>
+              <p class="text-gray-500">Chief Marketing Officer</p>
+              <p class="text-gray-400 text-sm">Acme Corp</p>
+            </div>
+          </div>
+          <!-- Speaker Card 6 -->
+          <div
+            class="speaker-card flex-shrink-0 snap-center bg-white rounded-lg shadow-lg p-6 w-64"
+            id="card"
+            data-name="John Doe"
+            data-role="Chief Engagement Officer"
+            data-company="Acquia"
+            data-image="./asset/image/speaker2.jpeg"
+          >
+            <img
+              src="./asset/image/speaker2.jpeg"
+              alt="Speaker"
+              class="w-24 h-24 rounded-full mx-auto object-cover"
+            />
+            <div class="text-center mt-4">
+              <h3 class="text-xl font-semibold">John Doe</h3>
+              <p class="text-gray-500">Chief Engagement Officer</p>
+              <p class="text-gray-400 text-sm">Acquia</p>
+            </div>
+          </div>
+          <!-- Speaker Card 7 -->
+          <div
+            class="speaker-card flex-shrink-0 snap-center bg-white rounded-lg shadow-lg p-6 w-64"
+            id="card"
+            data-name="John Doe"
+            data-role="Chief Technical Officer"
+            data-company="Pantheon"
+            data-image="./asset/image/speaker3.jpeg"
+          >
+            <img
+              src="./asset/image/speaker3.jpeg"
+              alt="Speaker"
+              class="w-24 h-24 rounded-full mx-auto object-cover"
+            />
+            <div class="text-center mt-4">
+              <h3 class="text-xl font-semibold">John Doe</h3>
+              <p class="text-gray-500">Chief Technical Developer</p>
+              <p class="text-gray-400 text-sm">Pantheon</p>
+            </div>
+          </div>
+          <!-- speaker card 8  -->
+          <div
+            class="speaker-card flex-shrink-0 snap-center bg-white rounded-lg shadow-lg p-6 w-64"
+            id="card"
+            data-name="John Doe"
+            data-role="Chief Marketing Officer"
+            data-company="Specbee"
+            data-image="./asset/image/speaker4.jpeg"
+          >
+            <img
+              src="./asset/image/speaker4.jpeg"
+              alt="Speaker"
+              class="w-24 h-24 rounded-full mx-auto object-cover"
+            />
+            <div class="text-center mt-4">
+              <h3 class="text-xl font-semibold">John Doe</h3>
+              <p class="text-gray-500">Chief Marketing Officer</p>
+              <p class="text-gray-400 text-sm">Specbee</p>
+            </div>
+          </div>
+          <button
+            class="absolute right-[-40px] top-1/2 transform -translate-y-1/2 p-2 bg-white shadow-lg rounded-full z-10"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 text-gray-500"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              id="right-arrow"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- bottom button -->
+      <div
+        class="flex mt-8.5 justify-center gap-x-8 content-center relative w-full h-auto"
+        id="program-list"
+      >
+        <p class="font-semi text-sm absolute left-[305px] bottom-0">
+          Click here to see <br />
+          the full program
+        </p>
+        <img
+          src="./asset/image/Arrow.png"
+          class="absolute top-20 left-[363px]"
+        />
+        <button
+          class="text-white bg-[#003FB4] rounded-lg pt-[20px] pr-[66px] pb-[20px] pl-[66px]"
+        >
+          See the Program
+        </button>
+      </div>
+    </div>
+
+    <script src="script.js">
+            tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: '#da373d',
+            },
+             screens: {
+        'md-960': '960px',
+      },
+          }
+        }
+      }
+    </script>
+  </body>
 </html>
