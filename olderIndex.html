@@ -5,10 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .content-auto {
+          content-visibility: auto;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div class="speaker_container">
-      <div class="speaker_heading">
+    <div class="w-full max-w-[1180px] px-2 mx-auto text-center">
+      <div class="text-center mt-8 mb-4">
         <h1
           class="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight text-black"
         >
@@ -21,9 +30,15 @@
         </p>
       </div>
       <!-- speaker details -->
-      <div class="speaker-detail toggle">
+      <div
+        class="flex items-center border rounded-md shadow-lg p-6 mt-10 relative hidden"
+        id="speaker-detail"
+      >
         <!-- Left Section (Profile Image & Details) -->
-        <button onclick="hideDetails()">
+        <button
+          class="absolute top-0 right-0 pr-3 mt-2"
+          onclick="hideDetails()"
+        >
           <svg
             width="18"
             height="18"
@@ -40,23 +55,20 @@
             />
           </svg>
         </button>
-        <div id="speaker-profile">
+        <div class="flex items-center w-[30%] space-x-4" id="speaker-profile">
           <!-- Profile Image -->
           <img
-            src="./asset/image/speaker1.jpeg"
+            src="https://tse1.mm.bing.net/th?id=OIP.mEma0ZcipymPAHIYoIuFiAHaJa&pid=Api&P=0&h=180"
             alt="Speaker"
-            id="speaker-img"
+            class="w-24 h-24 rounded-full mx-auto object-cover"
           />
           <!-- Details -->
-          <div class="speaker-info">
-            <div class="personal-info">
-              <h2 id="speaker-name">John Doe</h2>
-              <p id="speaker-role">Chief Marketing Office</p>
-              <p id="speaker-company">Specbee</p>
-            </div>
-
+          <div class="text-left whitespace-nowrap">
+            <h2 class="font-bold text-lg">John Doe</h2>
+            <p class="text-sm-700">Chief Marketing Office</p>
+            <p class="text-gray-500">Specbee</p>
             <!-- Social Icons -->
-            <div class="social-icon">
+            <div class="flex space-x-2 mt-2">
               <svg
                 width="18"
                 height="18"
@@ -99,7 +111,10 @@
         </div>
 
         <!-- Right Section (Text Description) - 75% width -->
-        <div id="speaker-description">
+        <div
+          class="w-[70%] ml-6 border-l-2 pl-6 text-gray-700 text-sm text-start"
+          id="speaker-description"
+        >
           Monotectally synergize business communities rather than client-centric
           convergence. Assertively unleash cross-platform best practices rather
           than pandemic total linkage. Synergistically monetize parallel
@@ -109,12 +124,14 @@
       </div>
 
       <!-- Slider Section -->
-      <div class="slider_wrapper" style="margin-top: 6rem">
+      <div class="container mx-auto px-4 py-8 relative">
         <!-- left arrow -->
-        <button class="slider_button_prev">
+        <button
+          class="absolute left-[-40px] top-1/2 transform -translate-y-1/2 p-2 bg-white shadow-lg rounded-full z-10 mr-6 border-solid border-gray-400"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="arrow"
+            class="h-6 w-6 text-gray-500"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -129,10 +146,12 @@
           </svg>
         </button>
         <!-- Slider Container with Scroll Snap -->
-        <div class="speakers-slider">
+        <div
+          class="overflow-x-auto speakers-slider scroll-snap-x flex space-x-6 snap-mandatory snap-x py-4 overflow-x-hidden"
+        >
           <!-- Speaker Card 1 -->
           <div
-            class="speaker-card"
+            class="speaker-card flex-shrink-0 snap-center bg-white rounded-lg shadow-lg p-6 w-64"
             id="card"
             data-name="John Doe"
             data-role="Chief Marketing Officer"
@@ -144,16 +163,16 @@
               alt="Speaker"
               class="w-24 h-24 rounded-full mx-auto object-cover"
             />
-            <div class="profile">
-              <h3>John Doe</h3>
-              <p>Chief Marketing Officer</p>
-              <p>Acme Corp</p>
+            <div class="text-center mt-4">
+              <h3 class="text-xl font-semibold">John Doe</h3>
+              <p class="text-gray-500">Chief Marketing Officer</p>
+              <p class="text-gray-400 text-sm">Acme Corp</p>
             </div>
           </div>
 
           <!-- Speaker Card 2 -->
           <div
-            class="speaker-card"
+            class="speaker-card flex-shrink-0 snap-center bg-white rounded-lg shadow-lg p-6 w-64"
             id="card"
             data-name="John Doe"
             data-role="Chief Engagement Officer"
@@ -165,19 +184,19 @@
               alt="Speaker"
               class="w-24 h-24 rounded-full mx-auto object-cover"
             />
-            <div class="profile">
-              <h3>John Doe</h3>
-              <p>Chief Engagement Officer</p>
-              <p>Acquia</p>
+            <div class="text-center mt-4">
+              <h3 class="text-xl font-semibold">John Doe</h3>
+              <p class="text-gray-500">Chief Engagement Developer</p>
+              <p class="text-gray-400 text-sm">Acquia</p>
             </div>
           </div>
 
           <!-- Speaker Card 3 -->
           <div
-            class="speaker-card"
+            class="speaker-card flex-shrink-0 snap-center bg-white rounded-lg shadow-lg p-6 w-64"
             id="card"
             data-name="John Doe"
-            data-role="Chief Technical Developer"
+            data-role="Chief Technical Officer"
             data-company="Pantheon"
             data-image="./asset/image/speaker3.jpeg"
           >
@@ -186,20 +205,20 @@
               alt="Speaker"
               class="w-24 h-24 rounded-full mx-auto object-cover"
             />
-            <div class="profile">
-              <h3>John Doe</h3>
-              <p>Chief Technical Developer</p>
-              <p>Pantheon</p>
+            <div class="text-center mt-4">
+              <h3 class="text-xl font-semibold">John Doe</h3>
+              <p class="text-gray-500">Chief Technical Developer</p>
+              <p class="text-gray-400 text-sm">Pantheon</p>
             </div>
           </div>
 
           <!-- Speaker Card 4 -->
           <div
-            class="speaker-card"
+            class="speaker-card flex-shrink-0 snap-center bg-white rounded-lg shadow-lg p-6 w-64"
             id="card"
             data-name="John Doe"
             data-role="Chief Marketing Officer"
-            data-company="Acme Corp"
+            data-company="Specbee"
             data-image="./asset/image/speaker4.jpeg"
           >
             <img
@@ -207,15 +226,15 @@
               alt="Speaker"
               class="w-24 h-24 rounded-full mx-auto object-cover"
             />
-            <div class="profile">
-              <h3>John Doe</h3>
-              <p>Chief Marketing Officer</p>
-              <p>Specbee</p>
+            <div class="text-center mt-4">
+              <h3 class="text-xl font-semibold">John Doe</h3>
+              <p class="text-gray-500">Chief Marketing Officer</p>
+              <p class="text-gray-400 text-sm">Specbee</p>
             </div>
           </div>
           <!-- Speaker Card 5  -->
           <div
-            class="speaker-card"
+            class="speaker-card flex-shrink-0 snap-center bg-white rounded-lg shadow-lg p-6 w-64"
             id="card"
             data-name="John Doe"
             data-role="Chief Marketing Officer"
@@ -227,19 +246,19 @@
               alt="Speaker"
               class="w-24 h-24 rounded-full mx-auto object-cover"
             />
-            <div class="profile">
-              <h3>John Doe</h3>
-              <p>Chief Marketing Officer</p>
-              <p>Acme Corp</p>
+            <div class="text-center mt-4">
+              <h3 class="text-xl font-semibold">John Doe</h3>
+              <p class="text-gray-500">Chief Marketing Officer</p>
+              <p class="text-gray-400 text-sm">Acme Corp</p>
             </div>
           </div>
           <!-- Speaker Card 6 -->
           <div
-            class="speaker-card"
+            class="speaker-card flex-shrink-0 snap-center bg-white rounded-lg shadow-lg p-6 w-64"
             id="card"
             data-name="John Doe"
-            data-role="Chief Marketing Officer"
-            data-company="Acme Corp"
+            data-role="Chief Engagement Officer"
+            data-company="Acquia"
             data-image="./asset/image/speaker2.jpeg"
           >
             <img
@@ -247,19 +266,19 @@
               alt="Speaker"
               class="w-24 h-24 rounded-full mx-auto object-cover"
             />
-            <div class="profile">
-              <h3>John Doe</h3>
-              <p>Chief Marketing Officer</p>
-              <p>Acme Corp</p>
+            <div class="text-center mt-4">
+              <h3 class="text-xl font-semibold">John Doe</h3>
+              <p class="text-gray-500">Chief Engagement Officer</p>
+              <p class="text-gray-400 text-sm">Acquia</p>
             </div>
           </div>
           <!-- Speaker Card 7 -->
           <div
-            class="speaker-card"
+            class="speaker-card flex-shrink-0 snap-center bg-white rounded-lg shadow-lg p-6 w-64"
             id="card"
             data-name="John Doe"
-            data-role="Chief Marketing Officer"
-            data-company="Acme Corp"
+            data-role="Chief Technical Officer"
+            data-company="Pantheon"
             data-image="./asset/image/speaker3.jpeg"
           >
             <img
@@ -267,19 +286,19 @@
               alt="Speaker"
               class="w-24 h-24 rounded-full mx-auto object-cover"
             />
-            <div class="profile">
-              <h3>John Doe</h3>
-              <p>Chief Marketing Officer</p>
-              <p>Acme Corp</p>
+            <div class="text-center mt-4">
+              <h3 class="text-xl font-semibold">John Doe</h3>
+              <p class="text-gray-500">Chief Technical Developer</p>
+              <p class="text-gray-400 text-sm">Pantheon</p>
             </div>
           </div>
           <!-- speaker card 8  -->
           <div
-            class="speaker-card"
+            class="speaker-card flex-shrink-0 snap-center bg-white rounded-lg shadow-lg p-6 w-64"
             id="card"
             data-name="John Doe"
             data-role="Chief Marketing Officer"
-            data-company="Acme Corp"
+            data-company="Specbee"
             data-image="./asset/image/speaker4.jpeg"
           >
             <img
@@ -287,16 +306,18 @@
               alt="Speaker"
               class="w-24 h-24 rounded-full mx-auto object-cover"
             />
-            <div class="profile">
-              <h3>John Doe</h3>
-              <p>Chief Marketing Officer</p>
-              <p>Acme Corp</p>
+            <div class="text-center mt-4">
+              <h3 class="text-xl font-semibold">John Doe</h3>
+              <p class="text-gray-500">Chief Marketing Officer</p>
+              <p class="text-gray-400 text-sm">Specbee</p>
             </div>
           </div>
-          <button class="silder_button_next">
+          <button
+            class="absolute right-[-40px] top-1/2 transform -translate-y-1/2 p-2 bg-white shadow-lg rounded-full z-10"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="arrow"
+              class="h-6 w-6 text-gray-500"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -314,13 +335,39 @@
       </div>
 
       <!-- bottom button -->
-      <div id="program-list">
-        <p class="program-text">Click here to see the full program</p>
-        <img src="./asset/image/Arrow.png" class="program-arrow" />
-        <button class="program-button">See the Program</button>
+      <div
+        class="flex mt-8.5 justify-center gap-x-8 content-center relative w-full h-auto"
+        id="program-list"
+      >
+        <p class="font-semi text-sm absolute left-[305px] bottom-0">
+          Click here to see <br />
+          the full program
+        </p>
+        <img
+          src="./asset/image/Arrow.png"
+          class="absolute top-20 left-[363px]"
+        />
+        <button
+          class="text-white bg-[#003FB4] rounded-lg pt-[20px] pr-[66px] pb-[20px] pl-[66px]"
+        >
+          See the Program
+        </button>
       </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+            },
+            screens: {
+              "md-960": "960px",
+            },
+          },
+        },
+      };
+    </script>
   </body>
 </html>
